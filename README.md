@@ -1,1 +1,6 @@
-# lxy878.github.io
+Run:
+```
+$ Jekyll serve
+```
+
+localhost:4000
