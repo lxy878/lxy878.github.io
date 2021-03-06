@@ -1,0 +1,20 @@
+.card-body div{
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    display: -webkit-box;       
+    line-height: 20px;      /* distance between lines */
+    -webkit-line-clamp: 6;  /* number of lines to show */
+    -webkit-box-orient: vertical; 
+}
+
+#dark{
+    background-color: yellow;
+}
+/* .container-fluid{
+    align-content: center;
+} */
+
+/* .container-fluid .row{
+    width: 80%;
+    margin: 0 auto;
+} */
