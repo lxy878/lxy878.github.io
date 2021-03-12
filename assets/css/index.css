@@ -35,10 +35,53 @@
     background-color: rgb(50, 45, 45);
 }
 
-/* h3{
-    color: yellow;
-} */
-
-.card{
+.card-size{
     width: 20rem;
+    height: 20rem;
 }
+
+.content .card-text{
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    display: -webkit-box;       
+    line-height: 20px;      /* distance between lines */
+    -webkit-line-clamp: 6;  /* number of lines to show */
+    -webkit-box-orient: vertical; 
+}
+/*----------------card hover with overlap----------------*/
+.image{
+    opacity: 1;
+    transition: 2s ease;
+    /* limit image height in card */
+    height: 250px;
+}
+
+.content{
+    opacity: 0; /* hidden current element */
+    /* set current div */
+    position: absolute;
+    /* set position  */
+    padding: 1rem;
+    top: 4%;
+    left: 4%;
+    /* set time and way when display */
+    transition: 1s ease;
+}
+
+.buttons{
+    opacity: 0;
+    position: absolute;
+    left: 9%;
+    bottom: 22%;
+    transition: 1s ease;
+}
+.card:hover .image{
+    opacity: 0.2;
+}
+
+.card:hover *{
+    opacity: 1;
+}
+
+/*----------------------------*/
+
