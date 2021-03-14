@@ -40,6 +40,28 @@
     height: 20rem;
 }
 
+
+.self{
+    width: 20rem;
+    height: 18rem;
+    clip-path: circle(40%);
+}
+
+
+
+.box{
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid black;
+}
+
+.icon-size{
+    font-size: 24px;
+}
+
+
+
+
 .content .card-text{
     text-overflow: ellipsis; 
     overflow: hidden; 
