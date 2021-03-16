@@ -2,7 +2,7 @@
 layout: post
 title:      "Sinatra Project"
 date:       2020-06-04 14:32:55 +0000
-description: 'Finally, I completed the sinatra project!!!  I feel that the project is less difficult but more complex than the CLI project. The project requirements don't focus on write ruby classes like the CLI....'
+description: 'Finally, I completed the sinatra project!!!  I feel that the project is less difficult but more complex than the CLI project....'
 permalink:  react_rails_project
 ---
 
