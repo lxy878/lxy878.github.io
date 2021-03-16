@@ -53,15 +53,14 @@
 
 
 .box{
-    width: 10rem;
-    height: 10rem;
-    border: 1px solid black;
+    border: 2px solid #322D2D;
+    padding: 10px;
+    text-align: left;
 }
 
-.icon-size{
-    font-size: 24px;
+.icon{
+    margin: 0rem 1rem;
 }
-
 
 .bio{
     padding: 1rem;
@@ -75,6 +74,12 @@
     -webkit-line-clamp: 6;  /* number of lines to show */
     -webkit-box-orient: vertical; 
 }
+
+i{
+    color: #3362bf;
+}
+
+
 /*----------------card hover with overlap----------------*/
 .image{
     opacity: 1;

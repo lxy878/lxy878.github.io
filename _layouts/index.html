@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +8,152 @@
     <!-- fix dymamic title -->
     <title>Home</title>
     <!-- fix script includes -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href="{{'assets/css/index.css'| relative_url }}"><link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href="{{'assets/css/index.css'| relative_url }}">
+    <link>
+    <!-- icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/v4-shims.cs">
 </head>
+
 <body>
     {% include navbar.html%}
-    <div>
-        <img src="#" class="img-fluid" alt="header">
+    <div class='container-fluid color-1'>
+        <div class='row p-5'>
+            <div class="col-lg-4 col-md-6 d-flex"><img class='self' src="{{'assets/img/self.jpg' | relative_url}}"
+                    alt="self">
+            </div>
+            <div class="col-lg-8 col-md-6 bio">
+                <div>
+                    <h4>Hello, my name is</h4>
+                    <h2>Xiaoyi Liu</h2>
+                    I am a full-stack software engineer with a BA in Computer Science with strong skills in Ruby on
+                    Rails and JavaScript based programming.
+                    Possess strong skills in developing, testing and debugging code and
+                    a mindset of creating innovative and high-quality products.
+                </div>
+                <br>
+                <a target='_blank' href="https://github.com/lxy878"><i class="fab fa-github fa-2x"
+                        style="padding-right: 1rem;"></i></a>
+                <a target='_blank' href="www.linkedin.com/in/xiaoyi-liu-6684ab82"><i class="fab fa-linkedin fa-2x"
+                        style="padding-right: 1rem;"></i></a>
+                <a href="mailto: lxy878@gmail.com"><i class="fas fa-envelope-open-text fa-2x"
+                        style="padding-right: 1rem;"></i></a>
+            </div>
+            <br>
+        </div>
     </div>
-    <div class='container-fluid color-1' id='about'>
-        <h1 class="text-center">About</h1>
-            
+    <div class="container-fluid text-center color-2" id='about'>
+        <h1> Skills </h1>
+        <div class='row p-5'>
+            <div class='col-md-4 d-flex'>
+                <div class='card card-bg-color non-hover text-center' style="width: 18rem;">
+                    <i class="far fa-lightbulb fa-3x"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Problem-solving</h5>
+                        <p class="card-text text-muted"> understand the limitations or abilities of frameworks, come out
+                            more creative andefficient soluations</p>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-4 d-flex'>
+                <div class='card card-bg-color non-hover text-center' style="width: 18rem;">
+                    <i class="fas fa-fire-alt fa-3x"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Passion</h5>
+                        <p class="card-text text-muted"> learn new technologies to create/advance better performance and
+                            design of products</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-md-4 d-flex'>
+                <div class='card card-bg-color non-hover text-center' style="width: 18rem;">
+                    <i class="fas fa-code fa-3x"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Clean Code</h5>
+                        <p class="card-text text-muted"> keep code DRY, reuseable, and efficient</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2>Languages and Frameworks</h2>
+        <br>
+        <div class="row justify-content-center">
+            <div class='icon'><img src="{{'assets/img/java.svg' | relative_url}}" alt="java" style="width: 80px;" /><p>Java</p></div>
+            <div class='icon'><img src="{{'assets/img/css.svg' | relative_url}}" alt="css" style="width: 80px;" /><p>CSS</p></div>
+            <div class='icon'><img src="{{'assets/img/html5.svg' | relative_url}}" alt="html5" style="width: 80px;" /><p>HTML5</p></div>
+            <div class='icon'><img src="{{'assets/img/ruby.png' | relative_url}}" alt="ruby" style="width: 80px;" /><p>Ruby</p></div>
+            <div class='icon'><img src="{{'assets/img/rails.svg' | relative_url}}" alt="rails" style="width: 60px;" /><p>Rails</p></div>
+            <div class='icon'><img src="{{'assets/img/sqlite.png' | relative_url}}" alt="sqlite" style="width: 80px;" /><p>SQLite</p></div>
+            <div class='icon'><img src="{{'assets/img/redux.svg' | relative_url}}" alt="redux" style="width: 80px;" /><p>Redux</p></div>
+            <div class='icon'><img src="{{'assets/img/react.svg' | relative_url}}" alt="react" style="width: 80px;" /><p>React</p></div>
+            <div class='icon'><img src="{{'assets/img/js.svg' | relative_url}}" alt="javascript" style="width: 80px;" /><p>JavaScript</p></div>
+        </div>  
         <br>
     </div>
-    <div class='container-fluid color-2' id='projects'>
+
+    <div class="container-fluid color-1 text-center" id='story'>
+        <h1>My Story</h1>
+        <div class="row p-5">
+            <div class="col-md-3">
+                <i class="fas fa-user-graduate fa-7x"></i>
+            </div>
+            <div class="col-md-9">
+                <p class="box">During my academic years, I accomplished most projects by using C++ or Java.
+                    I was using C++ for my projects for the first 2 years.
+                    My latest C++ coursework was a program that can draw an illusion image by implementing OpenGL
+                    library.
+                    Later 2 years, I shifted the language from C++ to Java.
+                    My latest Java coursework was a desktop application that can display information from a scraped
+                    website by
+                    searching keywords.
+                    Also, I obtained some experience with a team from a SQL program that can insert mixed data to
+                    designed
+                    tables and update new data to tables.</p>
+            </div>
+        </div>
+        <div class="row p-5">
+            <div class="col-md-3">
+                <i class="fas fa-microscope fa-7x"></i>
+            </div>
+            <div class="col-md-9">
+                <p class='box'>After graduation from college, To pursue a passion for web development,
+                    I enrolled in the Online Software Engineering Self-paced program in Flatiron School and
+                    I acquired a Software Engineering Certificate of Completion 1 year later.
+                    During the time of the self-paced program, I had massive curriculums and practices to learn about
+                    Rudy and
+                    frameworks related to Rudy.
+                    And I developed five projects that were evaluated by developers from the school.
+                    These projects were one Ruby CLI, one Sinatra CMS, one pure Rails web application, one Javascript
+                    with Rails
+                    web application, and one React/Redux with Rails application.
+                </p>
+            </div>
+        </div>
+
+        <br>
+    </div>
+    <div class='container-fluid color-2 text-center' id='projects'>
         <h1 class="text-center">Projects</h1>
-        <div class='row p-5'>  
+        <div class='row p-5'>
             <div class='col-lg-4 col-md-6'>
                 <div class="card m-3 card-bg-color card-size">
-                    <img class='image' src="{{'assets/img/rails_project.png' | relative_url}}" class="card-img-top" alt='rails project'>
+                    <img class='image' src="{{'assets/img/rails_project.png' | relative_url}}" class="card-img-top"
+                        alt='rails project'>
                     <div class="content">
                         <div class="card-title text-center fw-bold">Commercials Board</div>
-                        <p class='card-text'>The web app provides a platform for small business owners to spread their commercials.</p>
+                        <p class='card-text'>The web app provides a platform for small business owners to spread their
+                            commercials.</p>
                         <p class='card-text'>Features: User Authentication, CRUD, Comments.</p>
                     </div>
                     <div class='buttons'>
-                        <a target='_blank'href="https://github.com/lxy878/commercials_board_app" class="btn btn-primary">Details</a>
-                        <a target='_blank'href="https://drive.google.com/file/d/1eCDRmt0_87kmQ_RNf4-nGNbY9-Cuk28J/view" class="btn btn-primary">Demo</a>
+                        <a target='_blank' href="https://github.com/lxy878/commercials_board_app"
+                            class="btn btn-primary">Details</a>
+                        <a target='_blank' href="https://drive.google.com/file/d/1eCDRmt0_87kmQ_RNf4-nGNbY9-Cuk28J/view"
+                            class="btn btn-primary">Demo</a>
                     </div>
                     <div class='card-body text-center'>
                         <span class="badge rounded-pill bg-info text-dark">Rails</span>
@@ -43,18 +162,22 @@
                         <span class="badge rounded-pill bg-info text-dark">Sqlite</span>
                     </div>
                 </div>
-            </div>  
+            </div>
             <div class='col-lg-4 col-md-6'>
                 <div class="card m-3 card-bg-color card-size">
-                    <img class='image' src="{{'assets/img/react_rails.png' | relative_url}}" class="card-img-top" alt='Rails with React'>
+                    <img class='image' src="{{'assets/img/react_rails.png' | relative_url}}" class="card-img-top"
+                        alt='Rails with React'>
                     <div class="content">
                         <div class="card-title text-center fw-bold">Online Store</div>
-                        <p class='card-text'>The web application is e-commerce for anyone who sells their creative products and who purchases some unique goods.</p>
+                        <p class='card-text'>The web application is e-commerce for anyone who sells their creative
+                            products and who purchases some unique goods.</p>
                         <p class='card-text'>Features: User Authentication, User Authorization, ActiveStage, Trade.</p>
                     </div>
                     <div class='buttons'>
-                        <a target='_blank' href="https://github.com/lxy878/online-store" class="btn btn-primary">Details</a>
-                        <a target='_blank' href="https://drive.google.com/file/d/1Zfon1Vj3uHVKxPuS-f2ywF7TkXwWxqPq/view" class="btn btn-primary">Demo</a>
+                        <a target='_blank' href="https://github.com/lxy878/online-store"
+                            class="btn btn-primary">Details</a>
+                        <a target='_blank' href="https://drive.google.com/file/d/1Zfon1Vj3uHVKxPuS-f2ywF7TkXwWxqPq/view"
+                            class="btn btn-primary">Demo</a>
                     </div>
                     <div class="card-body text-center">
                         <span class="badge rounded-pill bg-info text-dark">Rails API</span>
@@ -64,18 +187,21 @@
                         <span class="badge rounded-pill bg-info text-dark">SQLite</span>
                     </div>
                 </div>
-            </div>       
+            </div>
             <div class='col-lg-4 col-md-6'>
                 <div class="card m-3 card-bg-color card-size">
-                    <img class='image' src="{{'assets/img/js_rails.png' | relative_url}}" class="card-img-top" alt='...'>
+                    <img class='image' src="{{'assets/img/js_rails.png' | relative_url}}" class="card-img-top"
+                        alt='...'>
                     <div class="content">
                         <div class="card-title text-center fw-bold">Secret Recipe</div>
                         <p class='card-text'> A web application stores your recipes on the server.</p>
                         <p class='card-text'>Features: SAP, Create, Read, Delete</p>
                     </div>
                     <div class='buttons'>
-                        <a target='_blank' href="https://github.com/lxy878/Secret_recipe_app" class="btn btn-primary">Details</a>
-                        <a target='_blank' href="https://drive.google.com/file/d/1TGQ-SGi8VI56s9io47EeDb-Xjjl7sSMR/view" class="btn btn-primary">Demo</a>
+                        <a target='_blank' href="https://github.com/lxy878/Secret_recipe_app"
+                            class="btn btn-primary">Details</a>
+                        <a target='_blank' href="https://drive.google.com/file/d/1TGQ-SGi8VI56s9io47EeDb-Xjjl7sSMR/view"
+                            class="btn btn-primary">Demo</a>
                     </div>
                     <div class="card-body text-center">
                         <span class="badge rounded-pill bg-info text-dark">Rails API</span>
@@ -85,19 +211,23 @@
                         <span class="badge rounded-pill bg-info text-dark">SQLite</span>
                     </div>
                 </div>
-            </div>     
+            </div>
 
             <div class='col-lg-4 col-md-6'>
                 <div class="card m-3 card-bg-color card-size">
-                    <img class='image' src="{{'assets/img/sinatra_course_register.png' | relative_url}}" class="card-img-top" alt='sinatra course register'>
+                    <img class='image' src="{{'assets/img/sinatra_course_register.png' | relative_url}}"
+                        class="card-img-top" alt='sinatra course register'>
                     <div class="content">
                         <div class="card-title text-center fw-bold">Course Register CMS</div>
-                        <p class='card-text'>The content management system is designed for the departments of majors in colleges.</p>
+                        <p class='card-text'>The content management system is designed for the departments of majors in
+                            colleges.</p>
                         <p class='card-text'>Features: User Authentication, User Authorization, CRUD</p>
                     </div>
                     <div class='buttons'>
-                        <a target='_blank' href="https://github.com/lxy878/sinatra_course_register_cms" class="btn btn-primary">Details</a>
-                        <a target='_blank' href="https://drive.google.com/file/d/1plBLQgjdnp0GFbcbNFsbjPcJTLkZkrPU/view" class="btn btn-primary">Demo</a>
+                        <a target='_blank' href="https://github.com/lxy878/sinatra_course_register_cms"
+                            class="btn btn-primary">Details</a>
+                        <a target='_blank' href="https://drive.google.com/file/d/1plBLQgjdnp0GFbcbNFsbjPcJTLkZkrPU/view"
+                            class="btn btn-primary">Demo</a>
                     </div>
                     <div class="card-body text-center">
                         <span class="badge rounded-pill bg-info text-dark">Ruby</span>
@@ -107,32 +237,29 @@
                         <span class="badge rounded-pill bg-info text-dark">SQLite</span>
                     </div>
                 </div>
-            </div>          
+            </div>
         </div>
         <br>
     </div>
-    
+
     <div class='container-fluid color-1' id='blogs'>
-        <h3 class="text-center" >Blogs</h3>
+        <h3 class="text-center">Blogs</h3>
         <div class='row p-5'>
-        {% for post in site.posts %}
+            {% for post in site.posts %}
             <div class='col-lg-4 col-md-6'>
                 <div class="card m-3 card-bg-color">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{post.url}}">{{post.title}}</a></h5>
+                        <h5 class="card-title">{{post.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{post.date| date_to_string: 'ordinal', 'US'}}</h6>
                         <div>{{post.content}}</div><br>
-                        <a href="#" class="card-link">Read More</a>
+                        <a href="{{post.url}}" class="card-link">Read More</a>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
-    </div>
-    <div class='container-fluid color-2' id="contact">
-        <h3 class="text-center" >Contact</h3>
-        <br>
     </div>
     {%include footer.html%}
 </body>
+
 </html>
