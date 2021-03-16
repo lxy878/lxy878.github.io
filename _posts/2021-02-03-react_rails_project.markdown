@@ -2,6 +2,7 @@
 layout: post
 title:      "React/Rails Project"
 date:       2021-02-03 14:32:55 +0000
+description: 'Throughout the whole process of development with react, I would say that using Reactjs is more convenient than directly using Javascript but less convenient than using Ruby on Rails.....'
 permalink:  react_rails_project
 ---
 

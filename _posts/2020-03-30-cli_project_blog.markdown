@@ -2,7 +2,7 @@
 layout: post
 title: 'Cli Project Blog'
 date: 2020-03-30 14:32:55 +0000
-description: 'Like most projects, the first step is always  difficult that is having the idea for a project.  I was stuck on what project I should build.....'
+description: 'Like most projects, the first step is always  difficult that is having the idea for a project.  I was stuck on what project I should build. One day I was noticed from the news....'
 permalink: cli_project_blog
 ---
 

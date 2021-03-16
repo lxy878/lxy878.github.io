@@ -2,6 +2,7 @@
 layout: post
 title:      "Pros and Cons on Rails"
 date:       2020-08-07 14:32:55 +0000
+description: 'Compared with Sinatra, the rails provides a lot of convenient tools like validations, authentications, etc.  Those tools solve some problems I had while I did Sinatra project. For Instance....'
 permalink: pros_and_cons_on_rails
 ---
 

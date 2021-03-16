@@ -2,6 +2,7 @@
 layout: post
 title:      "Rails with Javascript Project"
 date:       2020-10-07 14:32:55 +0000
+description: 'To compare the rails project, the js/rails project structures a half of the rails framework as backend and another half of js and HTML as frontend.  In other words, I could not use some conveniences.....'
 permalink: react_rails_projectrails_with_javascript_project
 ---
 
