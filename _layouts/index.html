@@ -74,15 +74,15 @@
         <h2>Languages and Frameworks</h2>
         <br>
         <div class="row justify-content-center">
-            <div class='icon'><img src="{{'assets/img/java.svg' | relative_url}}" alt="java" style="width: 80px;" /><p>Java</p></div>
-            <div class='icon'><img src="{{'assets/img/css.svg' | relative_url}}" alt="css" style="width: 80px;" /><p>CSS</p></div>
-            <div class='icon'><img src="{{'assets/img/html5.svg' | relative_url}}" alt="html5" style="width: 80px;" /><p>HTML5</p></div>
             <div class='icon'><img src="{{'assets/img/ruby.png' | relative_url}}" alt="ruby" style="width: 80px;" /><p>Ruby</p></div>
             <div class='icon'><img src="{{'assets/img/rails.svg' | relative_url}}" alt="rails" style="width: 60px;" /><p>Rails</p></div>
-            <div class='icon'><img src="{{'assets/img/sqlite.png' | relative_url}}" alt="sqlite" style="width: 80px;" /><p>SQLite</p></div>
-            <div class='icon'><img src="{{'assets/img/redux.svg' | relative_url}}" alt="redux" style="width: 80px;" /><p>Redux</p></div>
-            <div class='icon'><img src="{{'assets/img/react.svg' | relative_url}}" alt="react" style="width: 80px;" /><p>React</p></div>
             <div class='icon'><img src="{{'assets/img/js.svg' | relative_url}}" alt="javascript" style="width: 80px;" /><p>JavaScript</p></div>
+            <div class='icon'><img src="{{'assets/img/react.svg' | relative_url}}" alt="react" style="width: 80px;" /><p>React</p></div>
+            <div class='icon'><img src="{{'assets/img/redux.svg' | relative_url}}" alt="redux" style="width: 80px;" /><p>Redux</p></div>
+            <div class='icon'><img src="{{'assets/img/sqlite.png' | relative_url}}" alt="sqlite" style="width: 80px;" /><p>SQLite</p></div>
+            <div class='icon'><img src="{{'assets/img/html5.svg' | relative_url}}" alt="html5" style="width: 80px;" /><p>HTML5</p></div>
+            <div class='icon'><img src="{{'assets/img/css.svg' | relative_url}}" alt="css" style="width: 80px;" /><p>CSS</p></div>
+            <div class='icon'><img src="{{'assets/img/java.svg' | relative_url}}" alt="java" style="width: 80px;" /><p>Java</p></div>
         </div>  
         <br>
     </div>
@@ -114,7 +114,7 @@
             <div class="col-md-9">
                 <p class='box'>After graduation from college, To pursue a passion for web development,
                     I enrolled in the Online Software Engineering Self-paced program in Flatiron School and
-                    I acquired a Software Engineering Certificate of Completion 1 year later.
+                    I acquired a <a href="{{'assets/img/certificate.pdf' | relative_url}}">Software Engineering Certificate of Completion</a> 1 year later.
                     During the time of the self-paced program, I had massive curriculums and practices to learn about
                     Ruby and
                     frameworks related to Ruby.
@@ -244,7 +244,7 @@
                         <h5 class="card-title">{{post.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{post.date| date_to_string: 'ordinal', 'US'}}</h6>
                         <div>{{post.description}}</div><br>
-                        <a target='_blank' href="{{post.url}}" class="card-link">Read More</a>
+                        <a href="{{post.url}}" class="card-link">Read More</a>
                     </div>
                 </div>
             </div>
