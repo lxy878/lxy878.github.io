@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page.title}}</title>
+    {% include head-scripts.html%}
+</head>
+
+<body>
+    {% include navbar.html %}
+    <div class="container-fluid bg-info text-center post">
+        <img class='img-fluid post-image' src="{{'assets/img/post_image.jpg' | relative_url }}" alt="post_header">
+        <div class='title'><h1>{{page.title}}</h1><span>Posted by Xiaoyi Liu on {{page.date| date_to_string: 'ordinal', 'US'}}</span></div>
+        <div class='post-content'>{{content}}</div>
+    </div>
+
+    {% include footer.html%}
+</body>
+
+</html>

@@ -43,14 +43,11 @@
     height: 20rem;
 }
 
-
 .self{
     width: 20rem;
     height: 18rem;
     clip-path: circle(42.5%);
 }
-
-
 
 .box{
     border: 2px solid #322D2D;
@@ -79,6 +76,27 @@ i{
     color: #3362bf;
 }
 
+/* --------------post style---------------- */
+.post{
+    padding: 0rem;
+    /* keep elements to stay on the place in different size */
+    position: relative;
+}
+.post .title{
+   position: absolute;
+   margin-top: -20%;
+   margin-left: 30%;
+   margin-right: 30%;
+}
+.post .title h1{
+    font-size: 3rem;
+}
+.post .post-content{
+    padding: 3rem 10rem;
+    text-align: left;
+}
+
+/* --------------end post style---------------- */
 
 /*----------------card hover with overlap----------------*/
 .image{
