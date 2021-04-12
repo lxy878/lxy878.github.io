@@ -2,6 +2,7 @@
 layout: post
 title:      "Animation in CSS"
 date:       2021-04-12 01:28:22 -0400
+description: 'In this week, I had attented a online event "Think like an Animator: Applying Traditional Animation Principles to CSS" by Devon Anderson. The event was inspiring to me.'
 permalink:  animation_in_css
 ---
 
