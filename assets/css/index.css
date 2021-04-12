@@ -135,3 +135,14 @@ i{
 
 /*----------------------------*/
 
+/*----------Post Code Section-------------*/
+div.highlight{
+    background-color:#000000;
+}
+.highlight .highlight{
+    padding: 1rem;
+}
+.highlight .highlight code{
+    color:#ffffff;
+}
+/*-------------End of Post Code Section -------*/
