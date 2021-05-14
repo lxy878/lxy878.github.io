@@ -1,8 +1,8 @@
 ---
 layout: post
 title:      "Design Pattern: Strategy"
-date:       2021-05-13 04:40:22 -0400
-description: 'Strategy Design Pattern is a way to encapsulate a group of algorithms that can be interchangeable for users' usages.'
+date:       2021-05-14 04:40:22 -0400
+description: 'Strategy Design Pattern is a way to encapsulate a group of algorithms that can be interchangeable for user....'
 permalink:  design_pattern_strategy
 ---
 
