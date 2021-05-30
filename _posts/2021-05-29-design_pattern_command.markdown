@@ -6,108 +6,174 @@ description: ''
 permalink:  design_pattern_command
 ---
 
-Template Method Pattern is the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
+Command Design Pattern is a behavioral design pattern to encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
 
-This pattern can be used:
+Benefits of this pattern:
+* allows you to set aside a list of commands for later use.
+* a class is a great place to store the procedure you want to be executed.
+* you can store multiple commands in a class to use over and over.
+* you can implement undo procedures for past commands.
 
-* to implement the invariant parts of an algorithm once and leave it up to subclasses to implement the behavior that can vary.
-* when common behavior among subclasses should be factored and localized in a common class to avoid code duplication.
-* to control subclasses extensions. You can define a template method that calls "hook" operations at specific points, thereby permitting extensions only at those points.
+For example, we attempt to create a file system for both Unix OS and Windows OS.
 
-For example, we want to design a package for build houses.  There are two kinds of houses such as woodmade and brickmade.
+Before applying the command design pattern, we need two file system classes that contain actions under both OS.
 
-First, create an abstract class that contains steps of building a house.
+Therefore, create an interface for both file systems.
 
 ```
-public abstract class HouseTempale {
-    public final void buildHouse(){
-        buildFoundation();
-        buildPillars();
-        buildWindows();
-        buildWalls();
-        buildRoof();
-        if(withChimney()) buildChimney();
-        System.out.println("The house is completed.\n");
-    }
-
-    private void buildFoundation(){
-        System.out.println("building foundation");
-    }
-
-    private void buildPillars(){
-        System.out.println("building pillars");
-    }
-
-    private void buildRoof(){
-        System.out.println("building roof");
-    }
-
-    private void buildChimney(){
-        System.out.println("building chimney");
-    }
-
-    // hook can be over-written for optional choices
-    protected boolean withChimney(){
-        return false;
-    }
-
-    abstract void buildWindows();
-    abstract void buildWalls();
+public interface FileSystem {
+    void openFile();
+    void writeFile();
+    void closeFile();
 }
 ```
 
-Then, create a brckHouse class and a woodHouse class and both inherit with houseTemplete
+Then, create Unix file system and Windows file system classes inherited with FileSystem interface.
 
 ```
-public class BrickHouse extends HouseTempale{
+public class WindowsFileSystem implements FileSystem{
 
     @Override
-    void buildWindows() {
-        System.out.println("build brick windows");
+    public void openFile() {
+        System.out.println("Windows OS: open a file");
     }
 
     @Override
-    void buildWalls() {
-        System.out.println("build brick walls");
+    public void writeFile() {
+        System.out.println("Windows OS: write a file");
     }
 
     @Override
-		// build with a chimney
-    protected boolean withChimney() {
-        return true;
+    public void closeFile() {
+        System.out.println("Windows OS: close a file");
     }
 }
 ```
 
-
 ```
-public class WoodHouse extends HouseTempale{
+public class UnixFileSystem implements FileSystem {
 
     @Override
-    void buildWindows() {
-        System.out.println("build wood window");
+    public void openFile() {
+        System.out.println("Unix OS: open a file");
     }
 
     @Override
-    void buildWalls() {
-        System.out.println("build wood walls");
+    public void writeFile() {
+        System.out.println("Unix OS: write a file");
+    }
+
+    @Override
+    public void closeFile() {
+        System.out.println("Unix OS: close a file");
+    }
+}
+```
+Now, we can use the command pattern.
+
+First, create an interface for commands.
+
+```
+public interface Command {
+    void execute();
+}
+```
+
+Then, create classes for openFile(), writeFile() and closeFile().
+
+```
+public class OpenCommand implements Command {
+    private FileSystem fileSystem;
+
+    public OpenCommand(FileSystem fileSystem){
+        this.fileSystem = fileSystem;
+    }
+
+    @Override
+    public void execute() {
+        fileSystem.openFile();
+    }
+}
+```
+
+```
+public class WriteCommand implements Command {
+    private FileSystem fileSystem;
+
+    public WriteCommand(FileSystem fileSystem){
+        this.fileSystem = fileSystem;
+    }
+
+    @Override
+    public void execute() {
+        fileSystem.writeFile();
+    }
+}
+
+```
+
+```
+public class CloseCommand implements Command {
+    private FileSystem fileSystem;
+
+    public CloseCommand(FileSystem fileSystem){
+        this.fileSystem = fileSystem;
+    }
+
+    @Override
+    public void execute() {
+        fileSystem.closeFile();
+    }
+}
+```
+
+Last, create a processor class to execute created commands in orders.
+
+```
+public class CommandProcessor {
+    private Queue<Command> commandQueue = new LinkedList<>();
+
+    public void addCommand(Command command){
+        commandQueue.add(command);
+    }
+
+    public void executeCommands(){
+        while (commandQueue.size()>0){
+            Command command = commandQueue.poll();
+            command.execute();
+        }
     }
 }
 ```
 
 Now, test out.
 
-Main
 ```
-    public static void main(String[] args){
-        System.out.println("building a wood house");
-        WoodHouse woodHouse = new WoodHouse();
-        woodHouse.buildHouse();
+   public static void main(String[] args){
+        CommandProcessor commandProcessor = new CommandProcessor();
 
-        System.out.println("building a brick house");
-        BrickHouse brickHouse = new BrickHouse();
-        brickHouse.buildHouse();
+        FileSystem unix = new UnixFileSystem();
+        commandProcessor.addCommand(new OpenCommand(unix));
+        commandProcessor.addCommand(new WriteCommand(unix));
+        commandProcessor.addCommand(new CloseCommand(unix));
+
+        FileSystem windows = new WindowsFileSystem();
+        commandProcessor.addCommand(new OpenCommand(windows));
+        commandProcessor.addCommand(new WriteCommand(windows));
+        commandProcessor.addCommand(new CloseCommand(windows));
+
+        commandProcessor.executeCommands();
     }
 ```
 
-To sum up, The template method design pattern allows users to override only certain parts of a large algorithm, making them less affected by changes that happen to other parts of the algorithm. Also, it can avoid duplicate code into a superclass. However, the cons of this pattern are template methods tend to be harder to maintain too many steps, and users may be limited by the provided skeleton of an algorithm.
+```
+// OUTPUTS:
+Unix OS: open a file
+Unix OS: write a file
+Unix OS: close a file
+Windows OS: open a file
+Windows OS: write a file
+Windows OS: close a file
+```
+
+To sum up, the command design pattern allows decoupling classes that invoke operations from classes that perform these operations. Also, it allows us to create new commands into the app without breaking existing client code. This pattern, however, requires us to create many small classes that store lists of commands.
