@@ -2,178 +2,160 @@
 layout: post
 title:      "Design Pattern: Observer"
 date:       2021-06-06 04:40:22 -0400
-description: ''
+description: 'Observer design pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.'
 permalink:  observer_pattern_command
 ---
 
-Command Design Pattern is a behavioral design pattern to encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+Observer design pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 
-Benefits of this pattern:
-* allows you to set aside a list of commands for later use.
-* a class is a great place to store the procedure you want to be executed.
-* you can store multiple commands in a class to use over and over.
-* you can implement undo procedures for past commands.
+The benefit of this pattern is that the subject(data) doesn't need to know anything about the observer(any output form such as a chart, a table...).
 
-For example, we attempt to create a file system for both Unix OS and Windows OS.
+This pattern is applied to those situations:
+* When an abstraction has two aspects, one dependent on the other. Encapsulating these aspects in separate objects lets you vary and reuse them independently.
+* When a change to one object requires changing others, and you don't know how many objects need to be changed.
+* When an object should be able to notify other objects without making assumptions about who these objects are. In other words, you don't want these objects tightly coupled.
 
-Before applying the command design pattern, we need two file system classes that contain actions under both OS.
+For example, we create a simple program that maintains our information simultaneously in different places such as bank, company, and a shopping account.
 
-Therefore, create an interface for both file systems.
+First, create an interface for observers.
 
 ```
-public interface FileSystem {
-    void openFile();
-    void writeFile();
-    void closeFile();
+public interface Observer {
+		void Update();
 }
 ```
 
-Then, create Unix file system and Windows file system classes inherited with FileSystem interface.
+Then, create subclasses for Bank, Company, and Shopping, inherited from Observer.
 
 ```
-public class WindowsFileSystem implements FileSystem{
+public class BankObserver implements Observer {
+    private UserData userData;
 
-    @Override
-    public void openFile() {
-        System.out.println("Windows OS: open a file");
+    public BankObserver(UserData user){
+        this.userData = user;
     }
 
     @Override
-    public void writeFile() {
-        System.out.println("Windows OS: write a file");
-    }
-
-    @Override
-    public void closeFile() {
-        System.out.println("Windows OS: close a file");
+    public void Update() {
+        System.out.println("Bank Account Info: "+userData.getUserName() + " is "+ userData.getAge()+" years old.");
     }
 }
 ```
 
 ```
-public class UnixFileSystem implements FileSystem {
+public class CompanyObserver implements Observer{
+    private UserData userData;
 
-    @Override
-    public void openFile() {
-        System.out.println("Unix OS: open a file");
+    public CompanyObserver(UserData user){
+        this.userData = user;
     }
 
     @Override
-    public void writeFile() {
-        System.out.println("Unix OS: write a file");
-    }
-
-    @Override
-    public void closeFile() {
-        System.out.println("Unix OS: close a file");
-    }
-}
-```
-Now, we can use the command pattern.
-
-First, create an interface for commands.
-
-```
-public interface Command {
-    void execute();
-}
-```
-
-Then, create classes for openFile(), writeFile() and closeFile().
-
-```
-public class OpenCommand implements Command {
-    private FileSystem fileSystem;
-
-    public OpenCommand(FileSystem fileSystem){
-        this.fileSystem = fileSystem;
-    }
-
-    @Override
-    public void execute() {
-        fileSystem.openFile();
+    public void Update() {
+        System.out.println("Company Account Info: "+userData.getUserName() + " is "+ userData.getAge()+" years old.");
     }
 }
 ```
 
 ```
-public class WriteCommand implements Command {
-    private FileSystem fileSystem;
+public class ShoppingObserver implements Observer{
+    private UserData userData;
 
-    public WriteCommand(FileSystem fileSystem){
-        this.fileSystem = fileSystem;
+    public ShoppingObserver(UserData user){
+        this.userData = user;
     }
 
     @Override
-    public void execute() {
-        fileSystem.writeFile();
-    }
-}
-
-```
-
-```
-public class CloseCommand implements Command {
-    private FileSystem fileSystem;
-
-    public CloseCommand(FileSystem fileSystem){
-        this.fileSystem = fileSystem;
-    }
-
-    @Override
-    public void execute() {
-        fileSystem.closeFile();
+    public void Update() {
+        System.out.println("Shopping Account Info: "+userData.getUserName() + " is "+ userData.getAge()+" years old.");
     }
 }
 ```
 
-Last, create a processor class to execute created commands in orders.
+Third, create an abstract class as Subject.
 
 ```
-public class CommandProcessor {
-    private Queue<Command> commandQueue = new LinkedList<>();
+public abstract class Subject {
+    private List<Observer> observerList = new ArrayList<Observer>();
 
-    public void addCommand(Command command){
-        commandQueue.add(command);
+    public void attach(Observer observer){
+        observerList.add(observer);
     }
 
-    public void executeCommands(){
-        while (commandQueue.size()>0){
-            Command command = commandQueue.poll();
-            command.execute();
+    public void detach(Observer observer){
+        int index = observerList.indexOf(observer);
+        System.out.println(observer+" "+" removed.");
+        observerList.remove(index);
+    }
+
+    public void notifyObservers(){
+        for(Observer ob : observerList){
+            ob.Update();
         }
     }
 }
 ```
 
-Now, test out.
+Last, create a class that maintains our data, inherited Subject.
 
 ```
-   public static void main(String[] args){
-        CommandProcessor commandProcessor = new CommandProcessor();
-
-        FileSystem unix = new UnixFileSystem();
-        commandProcessor.addCommand(new OpenCommand(unix));
-        commandProcessor.addCommand(new WriteCommand(unix));
-        commandProcessor.addCommand(new CloseCommand(unix));
-
-        FileSystem windows = new WindowsFileSystem();
-        commandProcessor.addCommand(new OpenCommand(windows));
-        commandProcessor.addCommand(new WriteCommand(windows));
-        commandProcessor.addCommand(new CloseCommand(windows));
-
-        commandProcessor.executeCommands();
+public class UserData extends Subject {
+    private String userName;
+    private int age;
+    public UserData(String name, int age){
+        this.userName = name;
+        this.age = age;
     }
+
+    public void setAge(int age) {
+        System.out.println("Age changed from " + this.age+ " to "+age);
+        this.age = age;
+        notifyObservers();
+    }
+
+    public int getAge(){
+        return age;
+    }
+
+    public void setUserName(String name){
+        System.out.println("Name changed from " + this.userName+ " to "+name);
+        this.userName = name;
+        notifyObservers();
+        System.out.println("");
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+}
+```
+
+Now, test out
+
+```
+public static void observerTest(){
+    UserData user = new UserData("X Liu", 26);
+    user.attach(new BankObserver(user));
+    user.attach(new ShoppingObserver(user));
+    user.attach(new BankObserver(user));
+
+    user.setUserName("Jr Chan");
+
+    user.setAge(18);
+}
 ```
 
 ```
-// OUTPUTS:
-Unix OS: open a file
-Unix OS: write a file
-Unix OS: close a file
-Windows OS: open a file
-Windows OS: write a file
-Windows OS: close a file
+// output:
+Age changed from X Liu to Jr Chan
+Bank Account Info: Jr Chan is 26 years old.
+Shopping Account Info: Jr Chan is 26 years old.
+Bank Account Info: Jr Chan is 26 years old.
+
+Age changed from 26 to 18
+Bank Account Info: Jr Chan is 18 years old.
+Shopping Account Info: Jr Chan is 18 years old.
+Bank Account Info: Jr Chan is 18 years old.
 ```
 
-To sum up, the command design pattern allows decoupling classes that invoke operations from classes that perform these operations. Also, it allows us to create new commands into the app without breaking existing client code. This pattern, however, requires us to create many small classes that store lists of commands.
+To sum up, the observer design pattern allows users can introduce new Observer classes without having to change the Subject’s code. Also, the pattern allows users to establish relations between objects at runtime. The negative of the observer design pattern is that the subject may send updates that don't matter to the observer.
