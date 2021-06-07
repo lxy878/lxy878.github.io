@@ -1,9 +1,9 @@
 ---
 layout: post
-title:      "Design Pattern: Command"
-date:       2021-05-29 04:40:22 -0400
-description: 'Command Design Pattern is a behavioral design pattern to encapsulate a request as an object, thereby letting you parameterize clients...'
-permalink:  design_pattern_command
+title:      "Design Pattern: Observer"
+date:       2021-06-06 04:40:22 -0400
+description: ''
+permalink:  observer_pattern_command
 ---
 
 Command Design Pattern is a behavioral design pattern to encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
