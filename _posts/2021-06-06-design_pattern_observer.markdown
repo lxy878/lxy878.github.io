@@ -3,7 +3,7 @@ layout: post
 title:      "Design Pattern: Observer"
 date:       2021-06-06 04:40:22 -0400
 description: 'Observer design pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.'
-permalink:  observer_pattern_command
+permalink:  design_pattern_observer
 ---
 
 Observer design pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
