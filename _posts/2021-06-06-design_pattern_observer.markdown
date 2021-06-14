@@ -21,7 +21,7 @@ First, create an interface for observers.
 
 ```
 public interface Observer {
-		void Update();
+	void Update();
 }
 ```
 
