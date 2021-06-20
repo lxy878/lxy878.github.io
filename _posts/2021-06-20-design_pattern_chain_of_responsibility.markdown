@@ -2,7 +2,7 @@
 layout: post
 title:      "Design Pattern: Chain of Responsibility"
 date:       2021-06-20 04:40:22 -0400
-description: ''
+description: 'Chain of Responsibility Design Pattern is to avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request....'
 permalink:  design_pattern_chain_of_responsibility
 ---
 
@@ -10,20 +10,18 @@ Chain of Responsibility Design Pattern is to avoid coupling the sender of a requ
 
 The pattern is used when:
 
-* more than one object may handle a request, and the handler isn't known a
-priori. The handler should be ascertained automatically.
-* you want to issue a request to one of several objects without specifying the
-receiver explicitly.
+* more than one object may handle a request, and the handler isn't known a priori. The handler should be ascertained automatically.
+* you want to issue a request to one of several objects without specifying the receiver explicitly.
 * the set of objects that can handle a request should be specified dynamically.
 
-For example, we attempt to design a program that automanticlly assigns tasks to engineers by difficult levels.
+For example, we attempt to design a program that automatically assigns tasks to engineers by difficulty levels.
 
 The program follows those Rules:
 junior engineer -> easy task
 middile engineer -> medium task
 senior engineer -> difficult task
 
-First, create a Task class to store title and difficult of the task.
+First, create a Task class to store the title and difficulty of the task.
 
 ```
 public class Task {
@@ -45,7 +43,7 @@ public class Task {
 }
 ```
 
-Then, create a interface as Engineer.
+Then, create an interface as Engineer.
 
 ```
 public interface Engineer {
@@ -54,7 +52,7 @@ public interface Engineer {
 }
 ```
 
-Last, create classes for three levels of Engineer
+Last, create classes for three levels of Engineer.
 
 ```
 public class JuniorEngineer implements Engineer{
