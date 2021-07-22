@@ -6,3 +6,4 @@ description: "...."
 permalink:  design_pattern_facade
 ---
 
+post on 07/25
