@@ -1,8 +1,8 @@
 ---
 layout: post
 title:      "Structural Design Pattern: Facade"
-date:       2021-07-21 04:40:22 -0400
-description: "...."
+date:       2021-07-24 04:40:22 -0400
+description: "Facade Design Pattern provides a unified interface to a set of interfaces in a subsystem. This design pattern defines a higher-level interface that...."
 permalink:  design_pattern_facade
 ---
 
